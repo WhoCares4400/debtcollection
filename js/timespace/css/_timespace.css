@@ -1,0 +1,301 @@
+	/* CSS Transition */
+	.jqTimespaceAnimated {
+		transition: all 1.2s cubic-bezier(0.29, 0.575, 0.465, 1);
+	}
+
+	/* Error Display */
+	.jqTimespaceError {
+		padding: 1rem;
+		text-align: center;
+		color: var(--text-error);
+		background: var(--bg-error);
+	}
+
+	/* Containers */
+	.jqTimepsaceContainer,
+	.jqTimepsaceContainer .jqTimespaceDataContainer {
+		position: relative;
+		overflow: hidden;
+		margin: 0 auto;
+		padding: 0;
+		color: var(--text-primary);
+	}
+	.jqTimepsaceContainer .jqTimespaceDataContainer {
+		height: 200px;
+		box-shadow: 0 6px 5px -5px var(--shadow);
+		margin: 1rem;
+		border: 1px solid var(--border-secondary);
+		-moz-user-select: none;
+		user-select: none;
+		background: var(--bg-dull);
+		margin-right: auto!important;
+		margin-left: auto!important;
+	}
+
+/* Navigation and Line Guide */
+.jqTimepsaceContainer .jqTimespaceLeft,
+.jqTimepsaceContainer .jqTimespaceRight {
+	z-index: 3;
+	position: absolute;
+	bottom: 30%;
+	margin: 0;
+	border: 1px solid var(--border-dull);
+	padding: 0.1rem 0.5rem;
+	color: var(--text-secondary);
+	font-size: 1.6rem;
+	line-height: 3rem;
+	text-align: center;
+	cursor: pointer;
+	background: #FFF;
+	opacity: 0.7;
+}
+	.jqTimepsaceContainer .jqTimespaceLeft {
+		left: 0;
+		border-top-right-radius: 1rem;
+		border-bottom-right-radius: 1rem;
+		border-left: unset;
+	}
+	.jqTimepsaceContainer .jqTimespaceRight {
+		right: 0;
+		border-top-left-radius: 1rem;
+		border-bottom-left-radius: 1rem;
+		border-right: unset;
+	}
+	.jqTimepsaceContainer .jqTimespaceLeft:hover,
+	.jqTimepsaceContainer .jqTimespaceRight:hover {
+		background: #d6e5ff;
+		opacity: 1;
+	}
+	.jqTimepsaceContainer .jqTimespaceLine {
+		z-index: 3;
+		position: absolute;
+		box-sizing: border-box;
+		top: 0;
+		left: 50%;
+		margin: 0;
+		padding: 0;
+		width: 3px;
+		height: 100%;
+		background: var(--bg-gradient);
+		opacity: 0.15;
+		cursor: move;
+	}
+	
+/* Timeline */
+.jqTimepsaceContainer aside {
+	position: relative;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	line-break: strict;
+	cursor: move;
+}
+	.jqTimepsaceContainer header {
+		z-index: 4;
+		position: relative;
+		background: var(--bg-dull);
+	}
+	.jqTimepsaceContainer .jqTimespaceTitleClamp {
+		z-index: 5;
+		display: block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		opacity: 0;
+		cursor: move;
+	}
+	.jqTimepsaceContainer header > div {
+		display: flex;
+		position: relative;
+		box-sizing: border-box;
+		margin: 0;
+		border-bottom: 1px solid var(--border-dull);
+		text-align: center;
+	}
+	.jqTimepsaceContainer header > div:last-child {
+		border-bottom: 1px solid var(--border-dull);
+		text-align: left;
+	}
+	.jqTimepsaceContainer header h1,
+	.jqTimepsaceContainer header time,
+	.jqTimepsaceContainer header .jqTimespaceDummySpan {
+		display: block;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0.5rem 0;
+	}
+	.jqTimepsaceContainer header time {
+		padding: 0.2rem 0 0.2rem 0.1rem;
+	}
+	.jqTimepsaceContainer header h1 {
+		font-size: 1.2rem;
+	}
+	.jqTimepsaceContainer header h1:not(:first-child),
+	.jqTimepsaceContainer header .jqTimespaceDummySpan:not(:first-child) {
+		border-left: 1px solid var(--border-dull);
+	}
+	.jqTimepsaceContainer header .jqTimespaceDummySpan {
+		background: var(--bg-disabled);
+		opacity: 0.4;
+	}
+	.jqTimepsaceContainer header time:not(:first-child) {
+		border-left: 1px dashed var(--border-dull);
+	}
+	.jqTimepsaceContainer aside section {
+		z-index: 1;
+		display: flex;
+		position: relative;
+		top: 0;
+		min-height: 100%;
+	}
+	.jqTimepsaceContainer aside .jqTimespaceColumn {
+		box-sizing: border-box;
+		padding-bottom: 20px;
+	}
+	.jqTimepsaceContainer aside .jqTimespaceColumn:not(:first-child) {
+		border-left: 1px dashed var(--border-secondary);
+	}
+	
+/* Event Boxes */
+.jqTimepsaceContainer .jqTimespaceEvent {
+	z-index: 2;
+	position: relative;
+	box-sizing: border-box;
+	margin: 1rem 0 0 0;
+	padding: 0;
+	text-align: left;
+}
+	.jqTimepsaceContainer .jqTimespaceEventRev {
+		text-align: right;
+	}
+	.jqTimepsaceContainer .jqTimespaceEventBorder {
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		width: 1px;
+		height: 100%;
+		border-left: 1px solid var(--border-transparent);
+	}
+	.jqTimespaceEvent:hover + .jqTimespaceEventBorder {
+		border-left: 1px dashed var(--border-select);
+	}
+	.jqTimespaceEvent p {
+		overflow: hidden;
+		margin: 0;
+		border: 1px solid #548dff;
+		border-radius: 1rem;
+		padding: 0.1rem 0.5rem;
+		line-height: 1.6rem;
+		font-size: 1rem;
+		white-space: nowrap;
+		cursor: pointer;
+		background: var(--bg-dull);
+	}
+	.jqTimespaceEvent p span {
+		position: static;
+	}
+	.jqTimespaceEventRev p {
+		border-radius: 0.6rem 0 0 0.6rem;
+	}
+	.jqTimespaceEvent p:not(.jqTimespaceEventSelected):hover {
+		border: 1px solid var(--border-select);
+		background: #d6e5ff;
+		transition: all 0s!important;
+	}
+	.jqTimespaceEvent .jqTimespaceEventSelected {
+		border: 1px solid var(--border-select);
+		background: #0d6efd;
+		color: white;
+	}
+	.jqTimespaceEvent .border-success.jqTimespaceEventSelected {
+		background: #47d531;
+		border-color: #118c00!important;
+	}
+	.jqTimespaceEvent .border-success.jqTimespaceEventSelected i {
+		color: #FFF!important;
+	}
+
+	.jqTimespaceNoDisplay p {
+		cursor: move;
+		background: var(--bg-disabled);
+		opacity: 0.6;
+	}
+	.jqTimespaceNoDisplay p:hover {
+		border: 1px solid var(--border-secondary);
+		background: var(--bg-disabled);
+	}
+	
+	/* Display Box */
+	.jqTimespaceDisplay {
+		box-sizing: border-box;
+		margin: 0 auto;
+		margin-bottom: 0.5rem!important;
+		padding: 0;
+		height: 0;
+		background: var(--bg-dull);
+		border: 1px solid #0d6efd!important;
+		border-radius: 0.25rem!important;
+		overflow: hidden;
+		transition: height 0s linear;
+	}
+	.jqTimespaceDisplay > div {
+		margin: 0;
+		padding: 0.5rem;
+		overflow: auto;
+	}
+	.jqTimespaceDisplay h1 {
+		margin: 0;
+		padding: 0.5rem;
+		text-align: left;
+		font-size: 1.4rem;
+	}
+	.jqTimespaceDisplay .jqTimespaceDisplayTime {
+		display: flex;
+		position: relative;
+		padding-bottom: 0.5rem;
+		align-items: center;
+		font-size: 1.1rem;
+		-webkit-user-select: none!important;
+		-moz-user-select: none!important;
+		user-select: none!important;
+	}
+	.jqTimespaceDisplay .jqTimespaceDisplayLeft,
+	.jqTimespaceDisplay .jqTimespaceDisplayRight {
+		width: 0.9rem;
+		text-align: center;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	.jqTimespaceDisplay .jqTimespaceDisplayLeft {
+		margin-left: 0.5rem;
+	}
+	.jqTimespaceDisplay .jqTimespaceDisplayRight {
+		margin-left: 1.2rem;
+	}
+	.jqTimespaceDisplay .jqTimespaceDisplayLeft:hover,
+	.jqTimespaceDisplay .jqTimespaceDisplayRight:hover {
+		color: #3e9aff;
+	}
+	.jqTimespaceDisplay .jqTimespaceTimeframe {
+		display: inline-block;
+		width: 120px;
+		text-align: center;
+		margin: 0.2rem 0 0.2rem 1.2rem;
+		padding: 0 0.4rem;
+		border-left: 1px solid var(--border-primary);
+		border-right: 1px solid var(--border-primary);
+		color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity))!important;
+	}
+	.jqTimespaceTimeframe {
+		white-space: nowrap;
+	}
+	.jqTimespaceDisplay section {
+		margin: 0.25rem 1rem 0 1rem;
+		padding: 0;
+		max-width: 100%;
+	}
+	@media (max-width: 768px) {
+		.jqTimespaceDisplay section {
+			max-width: 100%
+		}
+	}
